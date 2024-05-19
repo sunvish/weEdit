@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-const Signin = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const Signin = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-900">
       <div className="bg-gray-800 rounded-lg p-10">
-        <h2 className="text-3xl font-semibold mb-6 text-gray-200">Login</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-gray-200">Login as Influencer</h2>
 
         <div className="mb-6">
           <input
@@ -69,9 +69,20 @@ const Signin = () => {
             </button>
           </Link>
         </div>
+        <div>
+          <p className="text-sm font-semibold mb-6 text-gray-100 mt-5">
+            Dont have an account?{" "}
+            <Link
+              to={"/influencer/register"}
+              className="text-blue-500 underline"
+            >
+              register
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Signin;
+export default Login;

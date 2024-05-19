@@ -27,7 +27,9 @@ const RegisterPage = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-900">
       <div className="bg-gray-800 rounded-lg p-10">
-        <h2 className="text-3xl font-semibold mb-6 text-gray-200">Register</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-gray-200">
+          Register as Editor
+        </h2>
 
         <div className="mb-6">
           <input

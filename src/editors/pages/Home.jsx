@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 import { Link } from "react-router-dom";
 
 const Main = () => {
@@ -17,11 +17,22 @@ const Main = () => {
           <p className="text-lg mb-6">
             Connect with Content Creators and Earn Money by Editing Videos
           </p>
-          <Link to="/login">
-            <button className="bg-red-500 text-white text-lg font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300">
-              Get Started
-            </button>
-          </Link>
+          <div className="mb-6">
+            <p className="text-lg mb-4">
+              Are you an editor looking to offer your services or a content
+              creator looking to hire editors?
+            </p>
+            <Link to="/editor/login">
+              <button className="bg-red-500 text-white text-lg font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300 mr-4">
+                🎬 Login as Editor
+              </button>
+            </Link>
+            <Link to="/influencer/login">
+              <button className="bg-red-500 text-white text-lg font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300">
+                📹 Login as Content Creator
+              </button>
+            </Link>
+          </div>
         </div>
       </header>
       <main className="px-8 py-4 text-center">
@@ -36,7 +47,7 @@ const Main = () => {
         <section className="my-8">
           <Link to="/add-content">
             <button className="bg-green-500 text-white text-lg font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300">
-              Add Content
+              ➕ Add Content
             </button>
           </Link>
         </section>
