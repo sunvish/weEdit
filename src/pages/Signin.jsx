@@ -17,10 +17,14 @@ const Signin = () => {
         },
         body: JSON.stringify(formData),
       });
-      console.log(response);
+
       if (response.ok) {
         setEmail("");
         setPassword("");
+        const jsonData = await response.json();
+
+        console.log(jsonData.token);
+        localStorage.setItem("token", jsonData.token);
         navigate("/home");
       }
     } catch (error) {

@@ -19,6 +19,7 @@ const PostWork = () => {
         method: "POST",
         headers: {
           "Content-type": "application/json",
+          token: localStorage.getItem("token"),
         },
         body: JSON.stringify(formData),
       });
