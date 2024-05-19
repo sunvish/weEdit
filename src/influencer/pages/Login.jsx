@@ -10,13 +10,16 @@ const Login = () => {
     try {
       e.preventDefault();
       const formData = { email, password };
-      const response = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "http://localhost:5000/api/influencer/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         setEmail("");
@@ -25,7 +28,7 @@ const Login = () => {
 
         console.log(jsonData.token);
         localStorage.setItem("token", jsonData.token);
-        navigate("/home");
+        navigate("/influencer/home");
       }
     } catch (error) {
       console.log(error);
@@ -35,7 +38,9 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-900">
       <div className="bg-gray-800 rounded-lg p-10">
-        <h2 className="text-3xl font-semibold mb-6 text-gray-200">Login as Influencer</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-gray-200">
+          Login as Influencer
+        </h2>
 
         <div className="mb-6">
           <input

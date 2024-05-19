@@ -1,25 +1,37 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
-    e.preventDefault();
-    const formData = { username, email, password };
-    await fetch("http://localhost:5000/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      e.preventDefault();
+      const formData = { username, email, password };
+      const response = await fetch(
+        "http://localhost:5000/api/influencer/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    setUsername("");
-    setEmail("");
-    setPassword("");
+      if (response.ok) {
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        navigate("/influencer/login");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -32,7 +44,7 @@ const RegisterPage = () => {
         <div className="mb-6">
           <input
             type="username"
-            placeholder="username"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full px-4 py-3 rounded bg-gray-700 text-gray-200 focus:outline-none focus:ring focus:ring-blue-500"

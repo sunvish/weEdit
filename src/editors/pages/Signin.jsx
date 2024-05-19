@@ -10,7 +10,7 @@ const Signin = () => {
     try {
       e.preventDefault();
       const formData = { email, password };
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://localhost:5000/api/creator/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
